@@ -30,3 +30,7 @@ a {
   display: grid;
   margin-top: 5%;
 }
+
+table, th, td {
+  border:1px solid black;
+}

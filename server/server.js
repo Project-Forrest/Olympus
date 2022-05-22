@@ -2,6 +2,13 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const db = require("./database/gym");
+const cors = require("cors");
+
+app.use(
+    cors({
+        origin: "http://localhost:3000",
+    })
+);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
