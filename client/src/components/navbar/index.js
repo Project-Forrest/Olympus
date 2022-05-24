@@ -10,6 +10,7 @@ const Navbar = () => (
             <li><a href="/">Home</a></li>
             <li><a href="/">About</a></li>
             <li><a href="/">Admin</a></li>
+            <li><a href="/new-user">New User</a></li>
          </ul>
     </nav>
 );

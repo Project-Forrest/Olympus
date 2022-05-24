@@ -2,7 +2,14 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './components/navbar/index';
 import api from './services/api';
-// import GymTable from './components/gym-control-panel/index';
+import NewUser from './pages/newUser';
+import GymTable from './components/gymTable/index';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
 
@@ -16,32 +23,17 @@ function App() {
   }, []);
 
   return (
-    <section>
+    <>
       <Navbar />
-      {console.log(typeof Object.values(gyms))}
-      <section className="control-panel">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Working Days</th>
-                  </tr>
-                </thead>
-                {gyms.map(sub => sub.map((gym, key) => {
-                  return (
-                    <tbody>
-                      <tr>
-                        <td key={gym.ID}>{gym.NAME}</td>
-                        <td key={gym.ID}>{gym.TYPE}</td>
-                        <td key={gym.ID}>{gym.WORKING_DAYS}</td>
-                      </tr>
-                    </tbody>
-                  )
-                }))}
-              </table>
-          </section>
-    </section>
+      <Router>
+        <div>
+          <Routes>
+            <Route path="/" element={<GymTable />} />
+            <Route path="/new-user" element={<NewUser />} />
+          </Routes>
+        </div>
+      </Router>
+    </>
   )
 };
 
