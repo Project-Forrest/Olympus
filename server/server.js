@@ -2,6 +2,13 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const db = require("./database/gym");
+const cors = require("cors");
+
+app.use(
+    cors({
+        origin: "http://localhost:3000",
+    })
+);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -17,6 +24,11 @@ app.get("/admin/gym", async (req, res) => {
 });
 
 app.patch("/admin/gym/:id", async (req, res) => {
+    const id = await db.updateGym(req.params.id, req.body);
+    res.status(200).json({ success: true });
+});
+
+app.put("/admin/gym/:id", async (req, res) => {
     const id = await db.updateGym(req.params.id, req.body);
     res.status(200).json({ success: true });
 });
