@@ -3,14 +3,14 @@ import logo from '../images/Logo1-white.png'
 
 const Navbar = () => (
     <nav className="navbar">
-        <a href="/">
+        <a href="/admin">
             <img src={logo} alt="Logo" width="100px"/>
          </a>
          <ul className="nav-itens">
-            <li><a href="/">Home</a></li>
-            <li><a href="/">About</a></li>
-            <li><a href="/">Admin</a></li>
-            <li><a href="/new-user">New User</a></li>
+            <li><a href="/admin">Home</a></li>
+            <li><a href="/admin">About</a></li>
+            <li><a href="/admin">Admin</a></li>
+            <li><a href="/admin/new-user">New User</a></li>
          </ul>
     </nav>
 );
