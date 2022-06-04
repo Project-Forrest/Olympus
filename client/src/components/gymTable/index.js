@@ -18,11 +18,11 @@ const GymTable = () => {
 
     function changeStatus(value, id) {
       if (value === 'true') {
-        value = { IS_OPEN: 'false' };
+        value = { IS_ACTIVE: 'false' };
       } else if (value === 'false') {
-        value = { IS_OPEN: 'true' };
+        value = { IS_ACTIVE: 'true' };
       } else {
-        value = { IS_OPEN: 'false' };
+        value = { IS_ACTIVE: 'false' };
       }
       api.put('/admin/gym/' + id, value)
       .then(window.location.reload(false))
@@ -31,7 +31,37 @@ const GymTable = () => {
 
     return (
         <section className="control-panel">
-            <table>
+          <h1>Gyms</h1>
+          {gyms.map(sub => sub.map((gym) => {
+                return (
+                  <div class="div-container">
+                    <div class="simple-card">
+                      <div>
+                        <div class="card-header">
+                          <strong>{gym.NAME}</strong>
+                          <p>{gym.WORKING_DAYS} / {gym.WORKING_HOURS}</p>
+                        </div>
+                      </div>
+                      <br />
+                      <div class="card-center">
+                        <p>{gym.CITY} - {gym.STATE}</p>
+                        <p>{gym.STREET}, {gym.NUMBER}</p>
+                      </div>
+                      <br />
+                      <div class="card-footer">
+                        <div class="card-footer-right">
+                          <p>Active: {gym.IS_ACTIVE}</p>
+                        </div>
+                        <div class="card-footer-buttons">
+                          <button class="bt-change" onClick={() => changeStatus(gym.IS_ACTIVE, gym.ID)}>Change</button>
+                          <button class="bt-delete" onClick={() => deleteUser(gym.ID)}>Delete</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              }))}
+            {/* <table>
               <thead>
                 <tr>
                   <th>Name</th>
@@ -48,13 +78,13 @@ const GymTable = () => {
                       <td key={gym.ID}>{gym.NAME}</td>
                       <td key={gym.ID}>{gym.TYPE}</td>
                       <td key={gym.ID}>{gym.WORKING_DAYS}</td>
-                      <td key={gym.ID}>{gym.IS_OPEN} <button onClick={() => changeStatus(gym.IS_OPEN, gym.ID)}>Change</button></td>
+                      <td key={gym.ID}>{gym.IS_ACTIVE} <button onClick={() => changeStatus(gym.IS_ACTIVE, gym.ID)}>Change</button></td>
                       <td><button onClick={() => deleteUser(gym.ID)}>DELETE</button></td>
                     </tr>
                   </tbody>
                 )
               }))}
-            </table>
+            </table> */}
         </section>
     )
 };
