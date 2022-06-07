@@ -5,7 +5,7 @@ const db = require("./database/gym");
 const dbuser = require("./controller");
 const req = require("express/lib/request");
 const res = require("express/lib/response");
-
+const sqlite3 = require ("./sqlite3")
 const port =  3000
 
 
@@ -36,22 +36,22 @@ app.get("/users", async (req, res) =>{
     const users=await dbuser.getusers (req, res)
 })
 
-app.listen(1337, () => console.log("server is running at port 1337"));
-
-app.use(express.json())
-
-app.get("./api/users", (req, res)=>{
+app.get("/api/users", (req, res)=>{
     const sql = "SELECT * FROM user"
-    db.all(sql,(err, rows) => {
+    sqlite3.all(sql,(err, rows) => {
      if (err) {
          res.status(4000).json({"error": err.message })
          return
 
      }
-         res.json(getSuccessMessage(rows))
+         res.json(
+            {"message" : "success", "data": rows }
+            
+            )
     } )
 
 
 
 } )
 
+app.listen(1337, () => console.log("server is running at port 1337"));
