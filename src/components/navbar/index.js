@@ -10,7 +10,7 @@ const Navbar = () => (
             <li><a href="/">Home</a></li>
             <li><a href="https://github.com/Project-Forrest/Olympus" rel="noreferrer" target="_blank">About</a></li>
             <li><a href="/admin">Admin</a></li>
-            <li><a href="/admin/new-user">New User</a></li>
+            <li><a href="/admin/new-user">New Gym</a></li>
          </ul>
     </nav>
 );
