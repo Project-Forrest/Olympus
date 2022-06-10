@@ -8,7 +8,7 @@ const port = process.env.PORT || 1337;
 
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        origin: "https://dancing-biscotti-9f6598.netlify.app",
     })
 );
 
