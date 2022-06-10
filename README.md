@@ -25,11 +25,17 @@ Para o Front do projeto temos uma página Home, Cadastro, Login, e as páginas d
 
 Uma página estática que apresenta informações básicas sobre Olympus e funciona como uma landing page para o projeto.
 
+!["Print Home Page"](readme_images/homepage.png?raw=true "Print Home Page")
+
 Essa imagem é apenas uma parte da página. Para acessar a página [clique aqui.](https://project-forrest.github.io/Home-Page/index.html)
 
 ## App de Registro e Login
 
 Ambas as páginas foram construídas utilizando React mas não são funcionais.
+
+!["Print Login Page"](readme_images/control_page_login.png?raw=true "Print Login Page")
+
+!["Print Register Page"](readme_images/control_page_register.png?raw=true "Print Register Page")
 
 Para acessar a página online [clique aqui.](https://candid-froyo-d3c9c8.netlify.app/)
 
@@ -39,9 +45,15 @@ O app de controle foi construída utilizando React e funciona consumindo a API d
 
 A página base é um aviso para mortais não acessarem a página.
 
+!["Print Control Base Page"](readme_images/control_page_base.png?raw=true "Print Control Base Page")
+
 Nessa página aparecem todas as academias registradas no banco de dados do projeto e tem em cada algumas informações sobre a academia e 2 botões. O botão Change ativa e desativa as academias e o Botão Delete apaga a academia do banco.
 
+!["Print Control Gyms Page"](readme_images/control_page_gyms.png?raw=true "Print Control Gyms Page")
+
 Tem também o formulário para criação de academias que permite a adição de novas academias no banco de dados do projeto.
+
+!["Print Control New Gym Page"](readme_images/control_page_new-gym.png?raw=true "Print Control New Gym Page")
 
 O app pode ser acessado no [clicando aqui.](https://dancing-biscotti-9f6598.netlify.app/)
 
@@ -53,6 +65,8 @@ No Back do projeto temos 2 APIs e cada API utiliza um banco de dados próprio. O
 ## Banco de Dados
 
 O banco possui 4 entidades mas a entidade Subscription não é utilizada e foi mantida apenas como lembrança da primeira versão do banco e para uma possível evolução do sistema. Abaixo está um modelo relacional do banco.
+
+!["Relational Model"](readme_images/relational_model.png?raw=true "Relational Model")
 
 ## API de Controle de Academias
 
