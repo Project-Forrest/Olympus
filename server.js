@@ -1,16 +1,43 @@
 const express = require("express");
-const app = express();
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const db = require("./database/functions");
-const cors = require("cors");
+const swaggerUI = require("swagger-ui-express");
+const swaggerJsDoc = require("swagger-jsdoc");
 
-const port = process.env.PORT || 1337;
+const options = {
+    definition: {
+        openapi: "3.0.0",
+        info: {
+            title: "Olympus Admin Control API",
+            version: "1.0.0",
+            description: "An API for Olympus admins to control the main tables."
+        },
+        servers: [
+            {
+                url: "https://olympus-gym-api.herokuapp.com",
+                description: "Production Server"
+            },
+            {
+                url: "http://localhost:1337",
+                description: "Development Server"
+            }
+        ]
+    },
+    apis: ["./database/api-docs.js"],
+}
+
+const app = express();
+
+const specs = swaggerJsDoc(options);
 
 app.use(
     cors({
-        origin: "https://dancing-biscotti-9f6598.netlify.app",
+        origin: "http://localhost:3000",
     })
 );
+
+app.use("/admin/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -60,4 +87,4 @@ app.get("/daycode/:id", async (req, res) => {
     res.status(200).json({ daycode });
 });
 
-app.listen(port, () => console.log(`server is running at port ${port}`));
+app.listen(1337, () => console.log("server is running at port 1337"));
