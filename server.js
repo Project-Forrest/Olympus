@@ -5,6 +5,8 @@ const db = require("./database/functions");
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
 
+const port = process.env.PORT || 1337;
+
 const options = {
     definition: {
         openapi: "3.0.0",
@@ -33,7 +35,7 @@ const specs = swaggerJsDoc(options);
 
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        origin: "https://dancing-biscotti-9f6598.netlify.app",
     })
 );
 
@@ -87,4 +89,4 @@ app.get("/daycode/:id", async (req, res) => {
     res.status(200).json({ daycode });
 });
 
-app.listen(1337, () => console.log("server is running at port 1337"));
+app.listen(port, () => console.log(`server is running at port ${port}`));
