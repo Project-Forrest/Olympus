@@ -71,4 +71,7 @@ O banco possui 4 entidades mas a entidade Subscription não é utilizada e foi m
 ## API de Controle de Academias
 
 Essa é a API consumida pelo app de Controle de Academias e é responsável por pelas operações feitas no APP.
+
+A documentação da API foi feita utilizando o Swagger. Para acessar a documentação da API [clique aqui.](https://olympus-gym-api.herokuapp.com/admin/api-docs/)
+
 Ela foi publicada através do Heroku e a URL base é: https://olympus-gym-api.herokuapp.com/
